@@ -1,20 +1,12 @@
 import React from 'react';
-import IssueList from './issueList';
 
 const Issue = props => {
-    const { issueData } = props;
     return(
-        <ul>
-            {issueData.length > 0 ? (
-                issueData.map(issue => (
-                    <li key = {issue.id}>
-                        <IssueList issue = {issue} />
-                    </li>
-                ))
-            ) : (
-                <li>No Issue Data</li>
-            )}
-        </ul>
+        <div>
+            <h2>{props.title}</h2>
+            <a href={props.url}>Issue Link</a>
+            <p>{props.body}</p>
+        </div>
     )
 };
 

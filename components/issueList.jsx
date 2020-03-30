@@ -3,7 +3,7 @@ import Issue from './issue';
 
 class IssueList extends Component {
     state = {
-        issue = [],
+        issue = []
     }
 
     loadIssue = async () => {
@@ -13,18 +13,28 @@ class IssueList extends Component {
     };
     
     componentDidMount = async () => {
-        const issue = await this.loadIssue();
+        const issueData = await this.loadIssue();
         this.setState({
-            issue: issue
+            issue: issueData
         })
     };
-
-    render() {
-        const { issue } = this.state;
+    
+    render(){
+        const { issueData } = this.state;
         return(
-            <Issue issue = { issue } />
+            <ul>
+                {issueData.length > 0 ? (
+                    issueData.map(issue => (
+                        <Issue key={issue.id} title = {issue.title} body = {issue.body} url = {issue.url} />
+                    ))
+                ) : (
+                    <li>No Issue Data</li>
+                )}
+            </ul>
         )
     }
+    
+    
 };
 
 export default IssueList;
