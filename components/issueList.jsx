@@ -19,13 +19,15 @@ class IssueList extends Component {
         })
     };
     
-    render(){
-        const { issueData } = this.state;
+    render() {
+        const { issue } = this.state;
         return(
             <ul>
-                {issueData.length > 0 ? (
-                    issueData.map(issue => (
-                        <Issue key={issue.id} title = {issue.title} body = {issue.body} url = {issue.url} />
+                {issue.length > 0 ? (
+                    issue.map(issue => (
+                        <li>
+                            <Issue key={issue.id} title = {issue.title} url = {issue.url} body = {issue.body} />
+                        </li>
                     ))
                 ) : (
                     <li>No Issue Data</li>
