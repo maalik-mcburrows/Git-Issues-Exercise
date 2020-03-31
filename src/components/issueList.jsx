@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 class IssueList extends Component {
     state = {
@@ -22,18 +23,18 @@ class IssueList extends Component {
         console.log(this.props);
         const { issue } = this.state;
         return(
-            <ul>
+            <ListGroup>
                 {issue.length > 0 ? (
                     issue.map(issue => (
-                        <div key={issue.id}>
+                        <ListGroupItem key={issue.id}>
                             <h2>{issue.title}</h2>
-                            <a target="_blank" href={`/issues/${issue.number}`}>See Details</a>
-                        </div>
+                            <a target="_blank" rel="noopener noreferrer" href={`/issues/${issue.number}`}>See Details</a>
+                        </ListGroupItem>
                     ))
                 ) : (
-                    <p>No Issue Data</p>
+                    <ListGroupItem>No Issue Data</ListGroupItem>
                 )}
-            </ul>
+            </ListGroup>
         )
     }
 };
