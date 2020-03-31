@@ -25,8 +25,8 @@ class IssueList extends Component {
             <ul>
                 {issue.length > 0 ? (
                     issue.map(issue => (
-                        <li>
-                            <Issue key={issue.id} title = {issue.title} url = {issue.url} body = {issue.body} />
+                        <li key={issue.id}>
+                            <Issue title = {issue.title} html_url = {issue.html_url} body = {issue.body} />
                         </li>
                     ))
                 ) : (
