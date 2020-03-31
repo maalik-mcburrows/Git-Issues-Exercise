@@ -23,12 +23,11 @@ class IssueList extends Component {
         console.log(this.props);
         const { issue } = this.state;
         return(
-            <ListGroup>
+            <ListGroup variant="flush">
                 {issue.length > 0 ? (
                     issue.map(issue => (
-                        <ListGroupItem key={issue.id}>
-                            <h2>{issue.title}</h2>
-                            <a target="_blank" rel="noopener noreferrer" href={`/issues/${issue.number}`}>See Details</a>
+                        <ListGroupItem action href={`/issues/${issue.number}`} target="_blank" rel="noopener noreferrer" key={issue.id}>
+                            <h2 className="list-group-item">{issue.title}</h2>
                         </ListGroupItem>
                     ))
                 ) : (
