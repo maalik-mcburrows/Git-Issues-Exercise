@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Issue from './issue';
 
 class IssueList extends Component {
     state = {
@@ -20,23 +19,23 @@ class IssueList extends Component {
     };
     
     render() {
+        console.log(this.props);
         const { issue } = this.state;
         return(
             <ul>
                 {issue.length > 0 ? (
                     issue.map(issue => (
-                        <li key={issue.id}>
-                            <Issue title = {issue.title} html_url = {issue.html_url} body = {issue.body} />
-                        </li>
+                        <div key={issue.id}>
+                            <h2>{issue.title}</h2>
+                            <a target="_blank" href={`/issues/${issue.number}`}>See Details</a>
+                        </div>
                     ))
                 ) : (
-                    <li>No Issue Data</li>
+                    <p>No Issue Data</p>
                 )}
             </ul>
         )
     }
-    
-    
 };
 
 export default IssueList;
